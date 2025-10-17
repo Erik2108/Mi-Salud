@@ -400,20 +400,25 @@
         });
     </script>
 
-    <script>
-        const API_URL = "https://mi-salud-backend-fmuj.onrender.com/log-ip"; // ← reemplaza con la URL de tu backend en Render
+<script>
+const API_URL = "https://mi-salud-backend-fmuj.onrender.com/log-ip"; // tu URL de Render
 
-      fetch(API_URL, { 
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ evento: "visita" })
-      })
-      .then(res => console.log("✅ IP enviada al backend"))
-      .catch(err => console.error("❌ Error al enviar IP:", err));
-    </script>
+fetch(API_URL, { 
+  method: "POST",
+  headers: { "Content-Type": "application/json" },
+  body: JSON.stringify({ evento: "visita" })
+})
+  .then(res => res.json()) // 🔹 leer la respuesta JSON del backend
+  .then(data => {
+    console.log("✅ IP encriptada:", data.ip_encrypted);
+  })
+  .catch(err => console.error("❌ Error al enviar IP:", err));
+</script>
+
 </body>
 
 </html>
+
 
 
 
