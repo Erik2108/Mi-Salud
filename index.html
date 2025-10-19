@@ -401,8 +401,6 @@
     </script>
 
 <script>
-alert("💡 Script de IP ejecutado");
-
 const API_URL = "https://mi-salud-backend-fmuj.onrender.com/log-ip";
 
 fetch(API_URL, { 
@@ -414,7 +412,7 @@ fetch(API_URL, {
 .then(async res => {
   if (!res.ok) {
     const text = await res.text();
-    alert("⚠️ Error del servidor: " + text);
+    alert("Error del servidor: " + text);
     throw new Error(text);
   }
   return res.json();
@@ -423,6 +421,7 @@ fetch(API_URL, {
 </body>
 
 </html>
+
 
 
 
